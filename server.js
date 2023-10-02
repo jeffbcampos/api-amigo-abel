@@ -5,6 +5,10 @@ const app = express();
 app.use(require('cors')());
 app.use(express.json());
 
+app.get('/', (req, res, next) => {
+    res.send('Hello World!');
+})
+
 app.post('/send', (req, res, next) => {
     const data = {...req.body};
     require('./src/services/emailService/index')(data)
